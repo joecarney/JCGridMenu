@@ -18,6 +18,9 @@ Best way to get started is to just download it and see what happens.    Seriousl
 
 However, I have built a nice little 6 page demo inside the source code.  
 
+[Watch the video if you cannot be bothered to download the source code] [3]
+
+
 Load it and you can see different examples of it how it works.  You can also look at the code for each demo controller to see how crap my code is and how I'm basically winging it all the way.
 
 ##Support...
@@ -53,3 +56,4 @@ I drew all of those icons myself.  By hand.  Not bad for a coder, eh? That's bec
 
 [1]: http://twitter.com/joseph_carney        "@joseph_carney"
 [2]: http://www.bohemiancoding.com/sketch/        "Sketch"
+[3]: https://dl.dropbox.com/u/2797263/Github/jcgridmenu.mov "Demo Video"
