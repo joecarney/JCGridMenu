@@ -14,7 +14,8 @@
     
 }
 
-@property (nonatomic, strong) JCGridMenuController *gmDemo;
+@property (nonatomic, strong) JCGridMenuController *gmDemo1;
+@property (nonatomic, strong) JCGridMenuController *gmDemo2;
 
 - (id)init;
 - (void)open;

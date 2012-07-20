@@ -51,7 +51,6 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"init demo2");
 
         // Favourites
         
@@ -171,7 +170,11 @@
 
 - (void)jcGridMenuRowSelected:(NSInteger)indexTag indexRow:(NSInteger)indexRow isExpand:(BOOL)isExpand
 {
-    NSLog(@"jcGridMenuRowSelected");
+    if (isExpand) {
+        NSLog(@"jcGridMenuRowSelected %i %i isExpand", indexTag, indexRow);
+    } else {
+        NSLog(@"jcGridMenuRowSelected %i %i !isExpand", indexTag, indexRow);
+    }
     
     if (indexTag==GM_TAG) {
         JCGridMenuRow *rowSelected = (JCGridMenuRow *)[_gmDemo.rows objectAtIndex:indexRow];
@@ -182,7 +185,7 @@
 
 - (void)jcGridMenuColumnSelected:(NSInteger)indexTag indexRow:(NSInteger)indexRow indexColumn:(NSInteger)indexColumn
 {
-    NSLog(@"jcGridMenuColumnSelected");
+    NSLog(@"jcGridMenuColumnSelected %i %i %i", indexTag, indexRow, indexColumn);
     
     if (indexTag==GM_TAG) {
         

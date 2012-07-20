@@ -201,7 +201,7 @@
     [_scroll addSubview:title5];
     
     UILabel *text5 = [[UILabel alloc] 
-                      demoText:@"Starting to get a bit crowded now isn't it?\n\nYou can customise the control to however you need to keep your user focused on the task at hand.\n\nTap the various options to see how fading, expanding, modals and selections work." 
+                      demoText:@"Starting to get a bit crowded now isn't it?\n\nYou can customise the control to keep your user focused on the task at hand.\n\nYou can also add more than one control to view..." 
                       frame:CGRectMake(left, top+40, width, height)];
     [_scroll addSubview:text5];
 

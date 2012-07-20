@@ -14,8 +14,11 @@
 
 @implementation JCDemo5
 
-#define GM_TAG        1002
-@synthesize gmDemo = _gmDemo;
+#define GM_TAG_1        1002
+#define GM_TAG_2        1022
+
+@synthesize gmDemo1 = _gmDemo1;
+@synthesize gmDemo2 = _gmDemo2;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -78,45 +81,6 @@
         [search setColumns:[[NSMutableArray alloc] initWithObjects:searchInput, searchClose, nil]];
         
         
-        // Favourites
-        
-        JCGridMenuColumn *favouriteView = [[JCGridMenuColumn alloc] 
-                                           initWithButtonImageTextLeft:CGRectMake(0, 0, 76, 44) 
-                                           image:@"FavouriteSmall" 
-                                           selected:@"FavouriteSmallSelected" 
-                                           text:@"Event"];
-        [favouriteView.button setBackgroundColor:[UIColor blackColor]];
-        [favouriteView setCloseOnSelect:NO];
-        
-        JCGridMenuColumn *favouriteObject = [[JCGridMenuColumn alloc] 
-                                             initWithButtonImageTextLeft:CGRectMake(0, 0, 80, 44) 
-                                             image:@"FavouriteSmall" 
-                                             selected:@"FavouriteSmallSelected" 
-                                             text:@"Object"];
-        [favouriteObject.button setBackgroundColor:[UIColor blackColor]];
-        [favouriteObject setCloseOnSelect:NO];
-        
-        JCGridMenuColumn *favouriteMethod = [[JCGridMenuColumn alloc] 
-                                             initWithButtonImageTextLeft:CGRectMake(0, 0, 88, 44) 
-                                             image:@"FavouriteSmall" 
-                                             selected:@"FavouriteSmallSelected" 
-                                             text:@"Method"];
-        [favouriteMethod.button setBackgroundColor:[UIColor blackColor]];
-        [favouriteMethod setCloseOnSelect:NO];
-        
-        
-        JCGridMenuRow *favourites = [[JCGridMenuRow alloc] 
-                                     initWithImages:@"Favourite" 
-                                     selected:@"FavouriteSelected" 
-                                     highlighted:@"FavouriteSelected" 
-                                     disabled:@"Favourite"];
-        [favourites setColumns:[[NSMutableArray alloc] initWithObjects:favouriteView, favouriteObject, favouriteMethod, nil]];
-        [favourites setIsExpanded:NO];
-        [favourites setIsModal:YES];
-        [favourites setHideAlpha:0.8f];
-        [favourites.button setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.4f]];
-        
-        
         // Share
         
         JCGridMenuColumn *twitter = [[JCGridMenuColumn alloc] 
@@ -177,10 +141,63 @@
         
         // Rows...
         
-        NSArray *rows = [[NSArray alloc] initWithObjects:search, favourites, share, comments, spam, nil];
-        _gmDemo = [[JCGridMenuController alloc] initWithFrame:CGRectMake(0,20,320,(44*[rows count])+[rows count]) rows:rows tag:GM_TAG];
-        [_gmDemo setDelegate:self];
-        [self.view addSubview:_gmDemo.view];
+        NSArray *rows1 = [[NSArray alloc] initWithObjects:search, share, comments, spam, nil];
+        _gmDemo1 = [[JCGridMenuController alloc] initWithFrame:CGRectMake(0,20,320,(44*[rows1 count])+[rows1 count]) rows:rows1 tag:GM_TAG_1];
+        [_gmDemo1 setDelegate:self];
+        [self.view addSubview:_gmDemo1.view];
+
+        // Favourites
+        
+        JCGridMenuColumn *favouriteView = [[JCGridMenuColumn alloc] 
+                                           initWithButtonImageTextLeft:CGRectMake(0, 0, 76, 44) 
+                                           image:@"FavouriteSmall" 
+                                           selected:@"FavouriteSmallSelected" 
+                                           text:@"Event"];
+        [favouriteView setCloseOnSelect:NO];
+        
+        JCGridMenuColumn *favouriteObject = [[JCGridMenuColumn alloc] 
+                                             initWithButtonImageTextLeft:CGRectMake(0, 0, 80, 44) 
+                                             image:@"FavouriteSmall" 
+                                             selected:@"FavouriteSmallSelected" 
+                                             text:@"Object"];
+        [favouriteObject setCloseOnSelect:NO];
+        
+        JCGridMenuColumn *favouriteMethod = [[JCGridMenuColumn alloc] 
+                                             initWithButtonImageTextLeft:CGRectMake(0, 0, 88, 44) 
+                                             image:@"FavouriteSmall" 
+                                             selected:@"FavouriteSmallSelected" 
+                                             text:@"Method"];
+        [favouriteMethod setCloseOnSelect:NO];
+        
+        
+        JCGridMenuColumn *favouritesClose = [[JCGridMenuColumn alloc] 
+                                             initWithButtonAndImages:CGRectMake(0, 0, 44, 44) 
+                                             normal:@"Close" 
+                                             selected:@"CloseSelected" 
+                                             highlighted:@"CloseSelected" 
+                                             disabled:@"Close"];
+        [favouritesClose setCloseOnSelect:YES];
+        
+        JCGridMenuRow *favourites = [[JCGridMenuRow alloc] 
+                                     initWithImages:@"Favourite" 
+                                     selected:@"Favourite" 
+                                     highlighted:@"FavouriteSelected" 
+                                     disabled:@"Favourite"];
+
+        
+        [favourites setColumns:[[NSMutableArray alloc] initWithObjects:favouriteView, favouriteObject, favouriteMethod, favouritesClose, nil]];
+        [favourites setIsExpanded:NO];
+        [favourites setIsModal:NO];
+        [favourites setHideAlpha:0.8f];
+        [favourites setHideOnExpand:YES];
+        
+        
+        
+        NSArray *rows2 = [[NSArray alloc] initWithObjects:favourites, nil];
+        _gmDemo2 = [[JCGridMenuController alloc] initWithFrame:CGRectMake(0,300,305,(44*[rows2 count])+[rows2 count]) rows:rows2 tag:GM_TAG_2];
+        [_gmDemo2 setDelegate:self];
+        [self.view addSubview:_gmDemo2.view];
+    
     }
     return self;
 }
@@ -190,13 +207,15 @@
 
 - (void)open
 {
-    [_gmDemo open];   
+    [_gmDemo1 open];   
+    [_gmDemo2 open];   
 }
 
 - (void)close
 {
     [self searchInput:NO];
-    [_gmDemo close];   
+    [_gmDemo1 close];   
+    [_gmDemo2 close];   
 }
 
 
@@ -205,10 +224,14 @@
 
 - (void)jcGridMenuRowSelected:(NSInteger)indexTag indexRow:(NSInteger)indexRow isExpand:(BOOL)isExpand
 {
-    NSLog(@"jcGridMenuRowSelected");
+    if (isExpand) {
+        NSLog(@"jcGridMenuRowSelected %i %i isExpand", indexTag, indexRow);
+    } else {
+        NSLog(@"jcGridMenuRowSelected %i %i !isExpand", indexTag, indexRow);
+    }
     
-    if (indexTag==GM_TAG) {
-        JCGridMenuRow *rowSelected = (JCGridMenuRow *)[_gmDemo.rows objectAtIndex:indexRow];
+    if (indexTag==GM_TAG_1) {
+        JCGridMenuRow *rowSelected = (JCGridMenuRow *)[_gmDemo1.rows objectAtIndex:indexRow];
         
         if ([rowSelected.columns count]==0) {
             // If there are no more columns, we can use this button as an on/off switch
@@ -222,7 +245,7 @@
                         [[rowSelected button] setSelected:YES];
                         [self searchInput:YES];
                         break;
-                    case 2: // Share
+                    case 1: // Share
                         [[rowSelected button] setSelected:YES];
                         break;
                 }
@@ -233,7 +256,7 @@
                     case 0: // Search
                         [[rowSelected button] setSelected:NO];
                         break;
-                    case 2: // Share
+                    case 1: // Share
                         [[rowSelected button] setSelected:NO];
                         break;
                 }
@@ -247,36 +270,34 @@
 
 - (void)jcGridMenuColumnSelected:(NSInteger)indexTag indexRow:(NSInteger)indexRow indexColumn:(NSInteger)indexColumn
 {
-    NSLog(@"jcGridMenuColumnSelected");
+    NSLog(@"jcGridMenuColumnSelected %i %i %i", indexTag, indexRow, indexColumn);
     
-    if (indexTag==GM_TAG) {
+    if (indexTag==GM_TAG_1) {
+        [[[_gmDemo1.gridCells objectAtIndex:indexRow] button] setSelected:NO];
+        [_gmDemo1 setIsRowModal:NO];
         
         if (indexRow==0) {
             // Search
             [self searchInput:NO];
-            [[[_gmDemo.gridCells objectAtIndex:indexRow] button] setSelected:NO];
-            [_gmDemo setIsRowModal:NO];
-        } else if (indexRow==1) {
-            // Favourites
-            UIButton *selected = (UIButton *)[[[_gmDemo.gridCells objectAtIndex:indexRow] buttons] objectAtIndex:indexColumn];
-            [selected setSelected:![selected isSelected]];
-            BOOL hasSelected = NO;
-            
-            for (int i=0; i<[[[_gmDemo.gridCells objectAtIndex:indexRow] buttons] count]; i++) {
-                
-                if ([[[[_gmDemo.gridCells objectAtIndex:indexRow] buttons] objectAtIndex:i] isSelected]) {
-                    hasSelected = YES;
-                    break;
-                }
-                
-            }
-            
-            [[[_gmDemo.gridCells objectAtIndex:indexRow] button] setSelected:hasSelected];
-        } else if (indexRow==2) {
-            [[[_gmDemo.gridCells objectAtIndex:indexRow] button] setSelected:NO];
-            [_gmDemo setIsRowModal:NO];
         }
         
+    }
+    
+    if (indexTag==GM_TAG_2) {
+        UIButton *selected = (UIButton *)[[[_gmDemo2.gridCells objectAtIndex:indexRow] buttons] objectAtIndex:indexColumn];
+        [selected setSelected:![selected isSelected]];
+        BOOL hasSelected = NO;
+        
+        for (int i=0; i<[[[_gmDemo2.gridCells objectAtIndex:indexRow] buttons] count]; i++) {
+            
+            if ([[[[_gmDemo2.gridCells objectAtIndex:indexRow] buttons] objectAtIndex:i] isSelected]) {
+                hasSelected = YES;
+                break;
+            }
+            
+        }
+        
+        [[[_gmDemo2.gridCells objectAtIndex:indexRow] button] setSelected:hasSelected];
     }
     
 }
