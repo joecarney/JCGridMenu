@@ -33,7 +33,7 @@ Hence you won't be surprised when I tell you that it comes with absolutely **zer
 
 However, if you are on Twitter, I suggest you...
 
-* Follow [@josephcarney] [1]
+* Follow [@joseph_carney] [1]
 
 You can always ping me there and if I'm not too busy I may reply.
 
