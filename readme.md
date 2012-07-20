@@ -51,5 +51,5 @@ Other than that, do with it what you will...
 I drew all of those icons myself.  By hand.  Not bad for a coder, eh? That's because I used [Sketch] [2].  It rocks. Try it sometime.
 
 
-[1]: http://twitter.com/joseph_carney        "@josephcarney"
+[1]: http://twitter.com/joseph_carney        "@joseph_carney"
 [2]: http://www.bohemiancoding.com/sketch/        "Sketch"
