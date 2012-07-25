@@ -23,6 +23,10 @@ However, I have built a nice little 6 page demo inside the source code.
 
 Load it and you can see different examples of it how it works.  You can also look at the code for each demo controller to see how crap my code is and how I'm basically winging it all the way.
 
+##Known Issues…
+
+    The control creates a transparent UIView and checks for -(id)hitTest to see if it should process the touch on a button or not.  It looks like this is fine unless the control is sitting on top of a MapView which requires a pinch/zoom.  Am looking into a fix today...
+
 ##Support...
 
 This control **hasn't been tested with anything**.  
