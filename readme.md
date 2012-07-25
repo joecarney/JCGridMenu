@@ -27,6 +27,10 @@ Load it and you can see different examples of it how it works.  You can also loo
 
 *The control creates a transparent UIView and checks for -(id)hitTest to see if it should process the touch on a button or not.  It looks like this is fine unless the control is sitting on top of a MapView which requires a pinch/zoom.  Am looking into a fix today…*
 
+**Nope, it works**. I'd added another view controller to the chain instead, and this was blocking the GridMenuController.  **I now have have the control sitting on top of both a MapView & TableView and it is fine.**
+
+Be careful how and where you embed this controller, especially if you create your own container which a normal view (it needs to be a transparent view).
+
 ##Support...
 
 This control **hasn't been tested with anything**.  
