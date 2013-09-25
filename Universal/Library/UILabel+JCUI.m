@@ -15,7 +15,7 @@
     [label setNumberOfLines:1];
     [label setValue:text forKey:@"text"];
     [label setTextColor:[UIColor colorWithWhite:1.0 alpha:0.9]];
-    [label setTextAlignment:UITextAlignmentLeft];
+    [label setTextAlignment:NSTextAlignmentLeft];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont systemFontOfSize:13.0f]];
     [label setShadowColor:[UIColor colorWithWhite:0.0f alpha:0.2f]];
@@ -29,7 +29,7 @@
     [label setNumberOfLines:1000];
     [label setValue:text forKey:@"text"];
     [label setTextColor:[UIColor colorWithWhite:0.0 alpha:0.9]];
-    [label setTextAlignment:UITextAlignmentLeft];
+    [label setTextAlignment:NSTextAlignmentLeft];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont systemFontOfSize:24.0f]];
     [label setShadowColor:[UIColor colorWithWhite:1.0f alpha:0.4f]];
@@ -44,7 +44,7 @@
     [label setNumberOfLines:1000];
     [label setValue:text forKey:@"text"];
     [label setTextColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
-    [label setTextAlignment:UITextAlignmentLeft];
+    [label setTextAlignment:NSTextAlignmentLeft];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont systemFontOfSize:14.0f]];
     [label setShadowColor:[UIColor colorWithWhite:1.0f alpha:0.4f]];

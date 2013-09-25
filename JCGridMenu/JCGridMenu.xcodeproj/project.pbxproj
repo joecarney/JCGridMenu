@@ -739,6 +739,7 @@
 		80B3D48415B945930069C6C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ENUM_CONVERSION = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCGridMenu/JCGridMenu-Prefix.pch";
 				INFOPLIST_FILE = "JCGridMenu/JCGridMenu-Info.plist";
@@ -750,6 +751,7 @@
 		80B3D48515B945930069C6C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ENUM_CONVERSION = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JCGridMenu/JCGridMenu-Prefix.pch";
 				INFOPLIST_FILE = "JCGridMenu/JCGridMenu-Info.plist";
