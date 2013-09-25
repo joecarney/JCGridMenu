@@ -83,7 +83,7 @@
     
     [UIView animateWithDuration:0.2
                           delay:0.0
-                        options: UIViewAnimationCurveEaseIn
+                        options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [self.layer setPosition:CGPointMake(xStart+44, yStart)];
                          [_button setSelected:[_row isSelected]];
@@ -96,7 +96,7 @@
 
                          [UIView animateWithDuration:0.2
                                                delay:0.0
-                                             options: UIViewAnimationCurveLinear
+                                             options: UIViewAnimationOptionCurveLinear
                                           animations:^{
                                               [self.layer setPosition:CGPointMake(xEnd, yEnd)];
                                           } 
@@ -112,7 +112,7 @@
 
     [UIView animateWithDuration:0.4
                           delay:0.0
-                        options: UIViewAnimationCurveEaseIn
+                        options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [self.layer setPosition:CGPointMake(_hideX, _hideY)];
                      } 
@@ -225,7 +225,7 @@
         
         [UIView animateWithDuration:0.2
                               delay:0.0
-                            options: UIViewAnimationCurveEaseIn
+                            options: UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              [self.layer setPosition:CGPointMake((centerX -_expandWidth) +44, centerY)];
                          } 
@@ -254,7 +254,7 @@
 
     [UIView animateWithDuration:0.2
                           delay:0.0
-                        options: UIViewAnimationCurveEaseIn
+                        options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [self.layer setPosition:CGPointMake(centerX, centerY)];
                      } 
@@ -278,7 +278,7 @@
     if (needsReset) {
         [UIView animateWithDuration:0.2
                               delay:0.0
-                            options: UIViewAnimationCurveEaseIn
+                            options: UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              
                              if ([_row hideOnExpand]) {
