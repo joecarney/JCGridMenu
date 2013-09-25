@@ -1,0 +1,4 @@
+.DS_Store
+JCGridMenu/*.xcodeproj/*
+!JCGridMenu/*.xcodeproj/project.pbxproj
+!JCGridMenu/*.xcworkspace/contents.xcworkspacedata
