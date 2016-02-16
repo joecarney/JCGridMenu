@@ -14,7 +14,7 @@ This is a simple IOS control that works as a 44x44px menu using rows and columns
 
 It is an ARC project so if you want to drop it into a non-ARC project, I hope you know what you are doing.  
 
-Best way to get started is to just download it and see what happens.    Seriously, I don't have time to explain how to open an xCode project and what you need to do to get into your own project.
+Best way to get started is to just download it and see what happens.    Seriously, I don't have time to explain how to open an Xcode project and what you need to do to get into your own project.
 
 However, I have built a nice little 6 page demo inside the source code.  
 
